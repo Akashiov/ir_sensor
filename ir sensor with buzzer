@@ -1,0 +1,32 @@
+//ir sensor and buzzer connection code with arduino
+void setup() {
+  pinMode(A0, INPUT);
+  pinMode(9,OUTPUT);
+  pinMode(5,INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int b=digitalRead(5);
+  int a = analogRead(A0);
+  Serial.println(a);
+  delay(1000);
+  if(b==1)
+  {
+    
+
+    if(a>20 && a<100)
+    {
+      tone(9,2000);
+      delay(500);
+      noTone(9);
+      delay(500);
+    }
+    else
+    {
+      noTone(9);
+    }
+  }
+  
+}
+
